@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="新生儿常用药药理知识检索库" />
+    <title>新生儿药理知识库</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand" aria-label="新生儿药理知识库首页">
+        <span class="brand-mark">N</span>
+        <span>
+          <strong>新生儿药理知识库</strong>
+          <small>Neonatal Pharmacology Index</small>
+        </span>
+      </div>
+      <div class="topbar-meta">
+        <span class="status-dot"></span>
+        <span>公开检索版 · v0.1</span>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">药师工作台 / 新生儿常用药</p>
+          <h1>先理解药物，<br /><em>再进入临床语境。</em></h1>
+          <p class="hero-copy">以药物机制和药理作用为核心的公开知识索引。支持药名、别名和系统分类检索。</p>
+        </div>
+        <div class="hero-note">
+          <span class="note-label">当前收录</span>
+          <strong id="totalCount">0</strong>
+          <span>个目录条目</span>
+        </div>
+      </section>
+
+      <section class="search-panel" aria-label="药物检索">
+        <div class="search-field">
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="搜索药物名称、别名或药理分类" autocomplete="off" />
+          <kbd>/</kbd>
+        </div>
+        <button id="clearSearch" class="clear-button" type="button" hidden>清除</button>
+      </section>
+
+      <div class="workspace-grid">
+        <aside class="sidebar" aria-label="药理系统分类">
+          <div class="sidebar-heading">
+            <span>系统分类</span>
+            <span class="muted" id="resultCount">0</span>
+          </div>
+          <nav id="categoryNav" class="category-nav"></nav>
+          <div class="sidebar-footnote">
+            <span class="tiny-mark">i</span>
+            <p>本页面用于药理知识检索，不提供个体化用药建议。</p>
+          </div>
+        </aside>
+
+        <section class="content-area">
+          <div class="content-toolbar">
+            <div>
+              <p class="eyebrow">目录浏览</p>
+              <h2 id="sectionTitle">全部药物</h2>
+            </div>
+            <span class="view-label">按药理系统整理</span>
+          </div>
+
+          <div id="drugGrid" class="drug-grid"></div>
+
+          <div id="emptyState" class="empty-state" hidden>
+            <span class="empty-icon">⌕</span>
+            <h3>没有匹配的药物</h3>
+            <p>试试通用名、英文名或选择其他系统分类。</p>
+          </div>
+
+          <article id="detailPanel" class="detail-panel" hidden aria-live="polite"></article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>新生儿药理知识库</span>
+      <span>内容需结合具体制剂说明书与专业资料核对</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
