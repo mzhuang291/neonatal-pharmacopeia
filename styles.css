@@ -116,6 +116,10 @@ kbd { padding: 2px 7px; color: var(--muted); background: var(--paper); border: 1
 .detail-section ul { padding-left: 18px; }
 .detail-section li + li { margin-top: 4px; }
 .detail-source { margin-top: 24px; padding-top: 15px; color: #b6d1c5; border-top: 1px solid rgba(255,255,255,.2); font-size: 12px; }
+.source-links { margin-top: 10px; }
+.source-links ul { margin: 5px 0 0; padding-left: 18px; }
+.source-links li + li { margin-top: 4px; }
+.source-links a { color: var(--lime); text-decoration: underline; text-underline-offset: 2px; }
 
 .site-footer { padding: 20px 5vw; display: flex; justify-content: space-between; gap: 20px; color: var(--muted); background: var(--white); border-top: 1px solid var(--line); font-size: 11px; }
 

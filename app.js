@@ -184,6 +184,22 @@ const drugs = [
     use: "新生儿血栓或血小板相关疾病的专科治疗语境；具体适应证和联合抗栓方案需核对。", adverse: "出血、低血压、头痛、潮红、心动过速和胃肠道不适。", source: "通用药理概览；新生儿抗栓使用需由专科依据具体病情评估。"
   },
   {
+    id: "vitamin-k", name: "维生素K", aliases: "维生素K₁ · 植物甲萘醌 · Phytonadione · Phylloquinone", category: "血液系统", status: "药理概览", statusClass: "status-ready",
+    mechanism: "维生素K₁（phytonadione）在肝细胞内经维生素K循环转化为还原型辅因子，支持γ-谷氨酰羧化酶对维生素K依赖蛋白进行γ-羧化。主要相关蛋白包括凝血因子Ⅱ、Ⅶ、Ⅸ、Ⅹ及蛋白C、蛋白S。",
+    effect: [
+      "作用环节：为γ-谷氨酰羧化酶提供还原型维生素K辅因子 → 生理变化：凝血因子Ⅱ、Ⅶ、Ⅸ、Ⅹ的谷氨酸残基完成γ-羧化并获得结合钙离子的能力 → 临床表现：维生素K缺乏导致的凝血功能异常和出血风险可得到纠正。",
+      "作用环节：恢复维生素K依赖凝血蛋白的功能性合成 → 生理变化：凝血因子在磷脂表面的结合及凝血级联反应能力改善 → 临床表现：新生儿维生素K缺乏性出血（VKDB）的发生风险降低；这不是直接、即时的止血作用。"
+    ],
+    use: "新生儿维生素K缺乏性出血（VKDB）的预防；维生素K缺乏导致的凝血异常或出血的治疗语境。具体制剂、途径和方案应以适用的专业指南及产品说明书为准。",
+    adverse: "不同制剂和给药途径的风险并不相同。注射制剂可见注射部位疼痛、肿胀或压痛；说明书报告过敏/类过敏反应。部分注射剂说明书还提示，新生儿（尤其早产儿）溶血、黄疸或高胆红素血症可能与较高剂量相关。",
+    source: "参考资料支持通用机制及新生儿VKDB预防背景；不包含剂量或个体化方案。",
+    references: [
+      { title: "American Academy of Pediatrics. Vitamin K and the Newborn Infant. Pediatrics. 2022;149(3):e2021056036.", url: "https://doi.org/10.1542/peds.2021-056036" },
+      { title: "Araki S, Shirahata A. Vitamin K Deficiency Bleeding in Infancy. Nutrients. 2020;12(3):780.", url: "https://doi.org/10.3390/nu12030780" },
+      { title: "DailyMed: Phytonadione Injectable Emulsion, USP — product labeling.", url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=02445c07-7b4b-cd70-54e8-ebefc814f547" }
+    ]
+  },
+  {
     id: "penicillin", name: "青霉素", aliases: "Penicillin · 青霉素类", category: "抗菌药物", status: "药理概览", statusClass: "status-ready",
     mechanism: "β-内酰胺类抗菌药，结合青霉素结合蛋白并抑制细菌细胞壁肽聚糖交联。",
     effect: ["作用环节：阻断敏感细菌细胞壁合成 → 生理变化：细菌在生长分裂时细胞壁失稳并裂解 → 临床表现：对敏感病原体所致感染的菌负荷和炎症表现可能下降。"],
@@ -270,6 +286,7 @@ function cardTemplate(drug) {
 
 function detailTemplate(drug) {
   const effects = drug.effect.map((item) => `<li>${item}</li>`).join("");
+  const references = (drug.references || []).map((reference) => `<li><a href="${reference.url}" target="_blank" rel="noopener noreferrer">${reference.title}</a></li>`).join("");
   return `<div class="detail-header"><div><p class="eyebrow">${drug.category}</p><h3>${drug.name}</h3><p>${drug.aliases}</p></div><span class="detail-status">${drug.status}</span></div>
     <div class="detail-sections">
       <section class="detail-section"><h4>作用机制</h4><p>${drug.mechanism}</p></section>
@@ -277,7 +294,7 @@ function detailTemplate(drug) {
       <section class="detail-section"><h4>新生儿常见应用场景</h4><p>${drug.use}</p></section>
       <section class="detail-section"><h4>主要不良反应</h4><p>${drug.adverse}</p></section>
     </div>
-    <p class="detail-source">资料状态：${drug.source}</p>`;
+    <div class="detail-source">资料状态：${drug.source}${references ? `<div class="source-links"><strong>参考资料</strong><ul>${references}</ul></div>` : ""}</div>`;
 }
 
 function render() {
