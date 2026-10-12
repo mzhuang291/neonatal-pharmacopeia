@@ -142,6 +142,37 @@ const drugs = [
     use: "新生儿操作或机械通气相关镇静语境；早产儿和低血压患儿需特别谨慎。", adverse: "呼吸抑制、低血压、嗜睡、喂养困难和反常性兴奋；反复使用可有耐受和撤药反应。", source: "通用药理概览；新生儿适用性、制剂和监护要求需核对。"
   },
   {
+    id: "phenobarbital", name: "苯巴比妥", aliases: "Phenobarbital · 苯巴比妥钠（具体制剂）", category: "神经系统", status: "药理概览", statusClass: "status-ready",
+    mechanism: "巴比妥类抗惊厥药。新生儿惊厥治疗中的确切机制尚未完全阐明；新生儿制剂说明书认为其可能通过 GABA-A 受体增强突触抑制。一般药理作用包括延长 GABA-A 受体氯离子通道开放时间。",
+    effect: [
+      "作用环节：增强 GABA-A 受体介导的突触抑制 → 生理变化：神经网络持续或同步异常放电的倾向下降 → 临床表现：新生儿临床及脑电图惊厥负荷可能降低。",
+      "作用环节：广泛抑制中枢神经系统活动 → 生理变化：觉醒、呼吸驱动及部分运动反应下降 → 临床表现：可出现镇静、呼吸异常或呼吸抑制、喂养困难和低血压。"
+    ],
+    use: "新生儿惊厥控制。ILAE 2023 指南将苯巴比妥列为通常的一线抗惊厥药；若怀疑离子通道病等特定病因，药物选择可能不同。具体制剂标签需分别核对。",
+    adverse: "呼吸异常/呼吸抑制、镇静、喂养障碍和低血压；也可见心动过缓、低肌张力或意识抑制。不同注射剂的辅料和警示不同，不应互相泛化。",
+    source: "新生儿药理概览；抗惊厥定位依据 ILAE 指南，机制与不良反应参考新生儿专用制剂说明书。",
+    references: [
+      { title: "Pressler RM, et al. ILAE neonatal seizure treatment recommendations. Epilepsia. 2023;64(10):2550-2570.", url: "https://doi.org/10.1111/epi.17745" },
+      { title: "DailyMed: SEZABY (phenobarbital sodium) for injection — neonatal seizure labeling.", url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8c7d0402-4977-4c25-bc4b-11db91339e9a" }
+    ]
+  },
+  {
+    id: "diazepam", name: "地西泮", aliases: "Diazepam · 安定 · Valium", category: "神经系统", status: "新生儿应用需谨慎核对", statusClass: "status-draft",
+    mechanism: "苯二氮䓬类药物，是 GABA-A 受体苯二氮䓬位点的正向变构调节剂；在 GABA 存在时增强氯离子通道开放频率，强化中枢抑制性神经传递。",
+    effect: [
+      "作用环节：增强 GABA-A 受体介导的抑制性神经传递 → 生理变化：中枢神经元兴奋性及异常放电传播下降 → 临床表现：可产生抗惊厥作用并减轻急性惊厥活动。",
+      "作用环节：降低中枢神经系统兴奋性并影响运动通路 → 生理变化：觉醒水平和骨骼肌张力下降 → 临床表现：出现镇静、嗜睡及肌松作用。",
+      "作用环节：抑制中枢呼吸调节 → 生理变化：呼吸驱动和觉醒反应下降 → 临床表现：可发生呼吸抑制、呼吸暂停或较长时间的中枢抑制；与阿片类合用风险更高。"
+    ],
+    use: "抗惊厥和镇静的药理场景。新生儿惊厥指南将苯巴比妥列为通常一线，并列出苯妥英、左乙拉西坦、咪达唑仑或利多卡因等可选二线药物；地西泮未列入该指南的优先一/二线选项。所查注射剂说明书指出，30日龄及以下新生儿的安全性和有效性尚未确立，并报告过较长时间的中枢神经抑制。不可据此条目推定为新生儿常规首选。",
+    adverse: "嗜睡、镇静、呼吸抑制或呼吸暂停、低血压；新生儿可能出现较长时间的中枢神经抑制。注射剂还可有注射部位静脉炎或血栓性静脉炎。上述新生儿限制为具体肠外制剂说明书信息。",
+    source: "一般药理作用与新生儿临床定位分开呈现；肠外制剂说明书对新生儿有明确资料限制，应用须按专科指南和具体产品核对。",
+    references: [
+      { title: "Pressler RM, et al. ILAE neonatal seizure treatment recommendations. Epilepsia. 2023;64(10):2550-2570.", url: "https://doi.org/10.1111/epi.17745" },
+      { title: "DailyMed: Diazepam Injection, USP — pediatric use and safety labeling.", url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2719720b-4918-4f08-b1de-b267f404505f" }
+    ]
+  },
+  {
     id: "ursodeoxycholic-acid", name: "熊去氧胆酸", aliases: "Ursodeoxycholic acid · UDCA", category: "肝脏系统", status: "药理概览", statusClass: "status-ready",
     mechanism: "亲水性胆汁酸，可增加胆汁酸池中相对无毒胆汁酸比例，并促进胆汁分泌和胆汁淤积物排出。",
     effect: ["作用环节：替代部分疏水性、潜在细胞毒性胆汁酸并改善胆汁转运 → 生理变化：胆汁酸对肝细胞和胆管上皮的损伤减轻、胆汁流动增加 → 临床表现：胆汁淤积相关黄疸和胆汁酸潴留可能改善。", "作用环节：增强胆汁分泌及胆汁排泄 → 生理变化：胆汁淤积程度下降 → 临床表现：胆红素和胆汁淤积指标可能呈改善趋势，需结合实验室结果判断。"],
